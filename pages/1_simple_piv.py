@@ -3,6 +3,7 @@ from openpiv import tools, pyprocess
 import numpy as np
 import imageio.v3 as iio
 import matplotlib.pyplot as plt
+from pages.1_simple_piv import frame_a
 
 def simple_piv(im1, im2, window_size=32, search_size=48, overlap=16):
     """
@@ -31,9 +32,11 @@ def simple_piv(im1, im2, window_size=32, search_size=48, overlap=16):
 
 st.title("OpenPIV analysis of the pair of images")
 
-frame_a = iio.imread('frame_a.jpg')
-frame_b =  iio.imread('frame_b.jpg')
+# frame_a = iio.imread('frame_a.jpg')
+# frame_b =  iio.imread('frame_b.jpg')
 
+frame_a = st.session_state.frame_a
+frame_b = st.session_state.frame_b
 
 window_size = st.sidebar.slider("Interrogation window size",
                                 min_value=int(8),

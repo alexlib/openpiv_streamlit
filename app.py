@@ -52,17 +52,17 @@ if len(uploaded_files) > 0:
 
     with tab1:
         st.header("A")
-        frame_a = Image.open(uploaded_files[0])
-        st.image(frame_a, width=600)
+        st.session_state.frame_a = Image.open(uploaded_files[0])
+        st.image(st.session_state.frame_a, width=600)
 
     with tab2:
         st.header("B")
-        frame_b = Image.open(uploaded_files[1])
-        st.image(frame_b, width=600)
+        st.session_state.frame_b = Image.open(uploaded_files[1])
+        st.image(st.session_state.frame_b, width=600)
 
     
-    frame_a.save("frame_a.jpg",)
-    frame_b.save("frame_b.jpg")    
+    # frame_a.save("frame_a.jpg",)
+    # frame_b.save("frame_b.jpg")    
     st.sidebar.success("Choose `simple piv` above ")
     
 
