@@ -1,6 +1,5 @@
 import streamlit as st
-from PIL import Image
-
+import imageio.v3 as iio
 st.set_page_config(
     page_title="OpenPIV Streamlit app", 
     page_icon="👋",
@@ -52,12 +51,12 @@ if len(uploaded_files) > 0:
 
     with tab1:
         st.header("A")
-        st.session_state.frame_a = Image.open(uploaded_files[0])
+        st.session_state.frame_a = iio.imread(uploaded_files[0])
         st.image(st.session_state.frame_a, width=600)
 
     with tab2:
         st.header("B")
-        st.session_state.frame_b = Image.open(uploaded_files[1])
+        st.session_state.frame_b = iio.imread(uploaded_files[1])
         st.image(st.session_state.frame_b, width=600)
 
     

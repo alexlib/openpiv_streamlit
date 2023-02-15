@@ -1,11 +1,11 @@
+""" OpenPIV Streamlit app """
 import streamlit as st
 from openpiv import tools, pyprocess
 import numpy as np
 import imageio.v3 as iio
 import matplotlib.pyplot as plt
-from pages.1_simple_piv import frame_a
 
-def simple_piv(im1, im2, window_size=32, search_size=48, overlap=16):
+def simple_piv(im1, im2, window_size, search_size, overlap):
     """
     Simplest PIV run on the pair of images using default settings
 
@@ -37,6 +37,8 @@ st.title("OpenPIV analysis of the pair of images")
 
 frame_a = st.session_state.frame_a
 frame_b = st.session_state.frame_b
+
+# st.write(frame_a)
 
 window_size = st.sidebar.slider("Interrogation window size",
                                 min_value=int(8),
