@@ -1,5 +1,7 @@
 import streamlit as st
 import imageio.v3 as iio
+from openpiv import tools
+from skimage.util import img_as_ubyte
 st.set_page_config(
     page_title="OpenPIV Streamlit app", 
     page_icon="👋",
@@ -51,23 +53,13 @@ if len(uploaded_files) > 0:
 
     with tab1:
         st.header("A")
-        st.session_state.frame_a = iio.imread(uploaded_files[0])
-        st.image(st.session_state.frame_a, width=600)
+        st.session_state.frame_a = tools.imread(uploaded_files[0])
+        st.image(img_as_ubyte(st.session_state.frame_a), width=600)
 
     with tab2:
         st.header("B")
-        st.session_state.frame_b = iio.imread(uploaded_files[1])
-        st.image(st.session_state.frame_b, width=600)
+        st.session_state.frame_b = tools.imread(uploaded_files[1])
+        st.image(img_as_ubyte(st.session_state.frame_b), width=600)
 
-    
-    # frame_a.save("frame_a.jpg",)
-    # frame_b.save("frame_b.jpg")    
+
     st.sidebar.success("Choose `simple piv` above ")
-    
-
-# if len(uploaded_files) > 1:
-#     frames = [Image.open(image) for image in uploaded_files]
-#     frame_one = frames[0]
-#     frame_one.save("my_awesome.gif", format="GIF", append_images=frames,
-#                save_all=True, duration=200, loop=0)
-#     st.image("my_awesome.gif")
