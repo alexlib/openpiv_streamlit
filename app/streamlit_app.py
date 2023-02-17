@@ -38,14 +38,14 @@ st.markdown("""
     """
 )
 
-st.write("## Upload a pair of images")
+st.write("## Upload a pair of images:")
 
 uploaded_files = st.file_uploader("Upload here a pair of images", accept_multiple_files=True)
-# for uploaded_file in uploaded_files:
-#     # bytes_data = uploaded_file.read()
-#     st.write("filename:", uploaded_file.name)
-#     # st.write(bytes_data)
-#     st.image(uploaded_file)
+
+st.write("## Or click below: _Load demo files_ ")
+
+if st.button('Load demo files'):
+    uploaded_files = ['../demo/exp1_001_a.bmp','../demo/exp1_001_b.bmp']
 
 if len(uploaded_files) > 0:
     st.write("### Click on << or >> ")
@@ -60,6 +60,9 @@ if len(uploaded_files) > 0:
         st.header("B")
         st.session_state.frame_b = tools.imread(uploaded_files[1])
         st.image(img_as_ubyte(st.session_state.frame_b), width=600)
+
+
+
 
 
     st.sidebar.success("Choose `simple piv` above ")

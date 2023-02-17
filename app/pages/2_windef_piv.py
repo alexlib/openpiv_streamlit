@@ -17,13 +17,13 @@ settings = windef.PIVSettings()
 settings.num_of_iterations = st.sidebar.slider("Number of iterations",
                                       min_value=1,
                                       max_value=4,
-                                      value=1)
+                                      value=3)
 
 window_size = st.sidebar.slider("Smallest window size",
-                                min_value=int(8),
+                                min_value=int(4),
                                 max_value=int(np.max(np.array(frame_a.shape))/4),
-                                value=32,
-                                step=8)
+                                value=16,
+                                step=4)
 
 
 # overlap = st.sidebar.slider("Overlap",
