@@ -45,7 +45,7 @@ uploaded_files = st.file_uploader("Upload here a pair of images", accept_multipl
 st.write("## Or click below: _Load demo files_ ")
 
 if st.button('Load demo files'):
-    uploaded_files = ['app/static/exp1_001_a.bmp','app/static/exp1_001_b.bmp']
+    uploaded_files = ['app/static/exp1_001_a.jpg','app/static/exp1_001_b.jpg']
 
 if len(uploaded_files) > 0:
     st.write("### Click on << or >> ")
