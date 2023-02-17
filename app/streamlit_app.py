@@ -2,6 +2,7 @@ import streamlit as st
 import imageio.v3 as iio
 from openpiv import tools
 from skimage.util import img_as_ubyte
+from skimage.color import rgb2gray
 st.set_page_config(
     page_title="OpenPIV Streamlit app", 
     page_icon="👋",
@@ -53,12 +54,12 @@ if len(uploaded_files) > 0:
 
     with tab1:
         st.header("A")
-        st.session_state.frame_a = tools.imread(uploaded_files[0])
+        st.session_state.frame_a = rgb2gray(iio.imread(uploaded_files[0]))
         st.image(img_as_ubyte(st.session_state.frame_a), width=600)
 
     with tab2:
         st.header("B")
-        st.session_state.frame_b = tools.imread(uploaded_files[1])
+        st.session_state.frame_b = rgb2gray(iio.imread(uploaded_files[1]))
         st.image(img_as_ubyte(st.session_state.frame_b), width=600)
 
 
