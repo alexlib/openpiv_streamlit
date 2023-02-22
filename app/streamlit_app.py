@@ -59,18 +59,18 @@ if len(uploaded_files) > 0:
 
     with tab1:
         st.header("A")
-        st.session_state.frame_a = iio.imread(uploaded_files[0])
+        st.session_state.frame_a = img_as_ubyte(iio.imread(uploaded_files[0]))
         if st.session_state.frame_a.ndim > 2:
             st.session_state.frame_a = st.session_state.frame_a[:,:,0]
-        st.image(img_as_ubyte(st.session_state.frame_a), width=600)
+        st.image(st.session_state.frame_a, width=600)
 
     with tab2:
         st.header("B")
-        st.session_state.frame_b = iio.imread(uploaded_files[1])
+        st.session_state.frame_b = img_as_ubyte(iio.imread(uploaded_files[1]))
         if st.session_state.frame_b.ndim > 2:
             st.session_state.frame_b = st.session_state.frame_b[:,:,0]
             
-        st.image(img_as_ubyte(st.session_state.frame_b), width=600)
+        st.image(st.session_state.frame_b, width=600)
 
 
 

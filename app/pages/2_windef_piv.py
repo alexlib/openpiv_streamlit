@@ -4,6 +4,7 @@ from openpiv import windef, validation, filters, scaling, tools
 import numpy as np
 import imageio.v3 as iio
 import matplotlib.pyplot as plt
+from skimage.util import img_as_ubyte
 
 st.title("Multi-pass window deformation analysis")
 
