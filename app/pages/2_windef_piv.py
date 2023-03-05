@@ -1,17 +1,41 @@
 """ OpenPIV Streamlit app """
 import streamlit as st
-from openpiv import windef, validation, filters, scaling, tools
+from openpiv import windef, validation, filters, scaling
 import numpy as np
-import imageio.v3 as iio
+# import imageio.v3 as iio
 import matplotlib.pyplot as plt
-from skimage.util import img_as_ubyte
+# from skimage.util import img_as_ubyte
+from openpiv.windef import first_pass, multipass_img_deform
+# from openpiv import smoothn
 
 st.title("Multi-pass window deformation analysis")
+
+import streamlit as st
+
+# # Load the dictionary and store it in the session state
+# if 'var' not in st.session_state:
+#     st.session_state.var = dict(a='a', b='b', c='a')
+
+# # Parameter select
+# key = st.selectbox('Parameter', (st.session_state.var.keys()))
+# st.write('Parameter selected %s' % key)
+
+# # Display the value
+# value = st.text_input('Value', st.session_state.var[key])
+
+# # Store the value
+# st.session_state.var[key] = value
+
+# # Write the dictionary content
+# st.write('The dictionary content is now %s' % st.session_state.var)
+
 
 frame_a = st.session_state.frame_a
 frame_b = st.session_state.frame_b
 
 settings = windef.PIVSettings()
+
+st.sidebar.write(settings)
 
 # st.sidebar.write(settings)
 
@@ -54,8 +78,7 @@ st.sidebar.write("The window sizes are:", settings.windowsizes)
 
 def windef_piv(frame_a, frame_b, settings):
 
-    from openpiv.windef import first_pass, multipass_img_deform
-    from openpiv import smoothn
+
 
     x, y, u, v, s2n = first_pass(
                 frame_a,
