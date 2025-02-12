@@ -1,3 +1,0 @@
-openpiv
-streamlit
-streamlit-image-coordinates
